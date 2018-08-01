@@ -311,7 +311,7 @@ namespace VRTK
             pointerOriginSmoothingSettings.maxAllowedPerFrameAngleDifference = Mathf.Max(0.0001f, pointerOriginSmoothingSettings.maxAllowedPerFrameAngleDifference);
         }
 
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
             if (controllingPointer != null && controllingPointer.interactWithObjects && objectInteractor != null && objectInteractor.activeInHierarchy)
             {
@@ -615,7 +615,7 @@ namespace VRTK
             pointerOriginTransformFollowGameObject = new GameObject(VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BasePointerRenderer_Origin_Smoothed"));
             pointerOriginTransformFollow = pointerOriginTransformFollowGameObject.AddComponent<VRTK_TransformFollow>();
             pointerOriginTransformFollow.enabled = false;
-            pointerOriginTransformFollow.moment = VRTK_TransformFollow.FollowMoment.OnFixedUpdate;
+            pointerOriginTransformFollow.moment = VRTK_TransformFollow.FollowMoment.OnUpdate;
             pointerOriginTransformFollow.followsScale = false;
         }
 
